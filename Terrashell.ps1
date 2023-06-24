@@ -5,54 +5,73 @@
 #                                                                                                   #
 #   Le projet est porté par le module PSToml, permettant de lire les fichiers de configuration      #
 #   .toml (fichiers de descriptions comme le json, xml, etc...) grâce à Powershell.                 #
-#   Merci à jborean93.                                                                               #
+#   Merci à jborean93.                                                                              #
 #                                                                                                   #
 #####################################################################################################
 
 
 # Paramètres du script : Fichier .toml
 Param(
-    [Parameter(Mandatory=$True)]
-    [string] $File)
+    [Parameter(Mandatory=$false)]
+    [bool] $Init,
+    [Parameter(Mandatory=$false)]
+    [bool] $Apply,
+    [Parameter(Mandatory=$true)]
+    [string] $File
+    )
 
-# Vérifications du module PSToml
-Clear-Host
+ # Récupération du fichier toml
 
-$module_name = (Get-Module).Name
+ $tomlFile = get-content $File | ConvertFrom-Toml
 
-if ($module_name.Contains("PSToml")){
-    Write-Host -ForegroundColor Green "Le module est installé"} 
-else {
-    Write-Warning "Le module n'est pas installé"
-    Install-Module -Name PSToml -Force
+# Initialisation de Terrashell
+
+if ($Init && $File -notmatch $null){
+
+
+    # Vérifications du module PSToml
+    Clear-Host
+
+    $module_name = (Get-Module).Name
+
+    if ($module_name.Contains("PSToml")){
+        Write-Host -ForegroundColor Green "Le module est installé"} 
+    else {
+        Write-Warning "Le module n'est pas installé"
+        Install-Module -Name PSToml -Force
+    }
+
+    #Création du dossier Provider
+
+    if (!( Test-Path .\Provider )){
+
+        New-Item -Path .\ -Name Provider -ItemType Directory -Force
+
+    }
+    else {
+        Remove-Item -Path .\Provider -Recurse:$true -Force
+        New-Item -Path .\ -Name Provider -ItemType Directory -Force
+    }
+
+
+    # Téléchargement du provider
+        # Pour le moment, les providers seront à télécharger depuis github au format .zip (code > local > Download ZIP)    
+        # A modifier ultérieurement
+
+    Invoke-WebRequest -Uri $tomlFile.Provider.provider.url -OutFile .\Provider\provider.zip 
+
+    # Décompression du provider
+
+    Expand-Archive -Path .\Provider\provider.zip -DestinationPath .\Provider\ -Force 
+    Remove-Item -Path .\Provider\provider.zip  -Force
+
 }
 
-# Récupération du fichier toml
-
-$tomlFile = get-content $File | ConvertFrom-Toml
-
-#Création du dossier Provider
-
-if (!( Test-Path .\Provider )){
-
-    New-Item -Path .\ -Name Provider -ItemType Directory -Force
-
-}
-
-
-# Téléchargement du provider
-    # Pour le moment, les providers seront à télécharger depuis github au format .zip (code > local > Download ZIP)    
-    # A modifier ultérieurement
-
-Invoke-WebRequest -Uri $tomlFile.Provider.provider.url -OutFile .\Provider\provider.zip
-
-# Décompression du provider
-
-Expand-Archive -Path .\Provider\provider.zip -DestinationPath .\Provider\
-Remove-Item -Path .\Provider\provider.zip -Confirm:$false -Force
-
-
+if ($Apply && $File -notmatch $null){
 # Exécution du provider
     # A faire : Rédiger le premier provider, ESX
+    
+    $childPathProvider = (Get-ChildItem .\Provider\).Name
+    #Start-Process pwsh.exe -ArgumentList .\Provider\$childPathProvider\provider.ps1 -NoNewWindow 
 
-
+}
