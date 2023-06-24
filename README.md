@@ -18,4 +18,4 @@ Toml is a configuration language, like XML or JSON, but easier to understand by 
 It's for that i choice this language
 
 
-
+## Thanks to jborean93 for his PSToml module. Links [here](https://github.com/jborean93)
