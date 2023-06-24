@@ -1,0 +1,26 @@
+#Fichier toml de test, n'a aucune fonction pour le moment
+#Servira quand les providers seront écris
+
+
+[Provider]
+provider.url = "https://github.com/NonneTrapuE/terraform-provider-zerotier/archive/refs/heads/main.zip"
+
+
+
+
+[SSH]
+ssh.user = ""
+ssh.password = ""
+ssh.ip = ""
+ssh.port = ""
+
+[VM]
+VM.name = ""
+VM.iso = ""
+VM.switch = ""
+
+
+
+
+
+
