@@ -17,5 +17,18 @@ For testing Terrashell, install Powershell 7.2 or early form [here](https://lear
 Toml is a configuration language, like XML or JSON, but easier to understand by humans.
 It's for that i choice this language
 
+## To test Terraform
+
+Powershell 7.2 is required.
+Create a .toml file in a directory or download the test.toml file in the ESX provider repository.
+Syntax is easier to understand or write to JSON or XML.
+
+To use, the script, you need to use first Init option like this :
+
+``` .\Terrashell.ps1 -Init:$true -File C:\path\to\toml\file ```
+
+And to deploy template
+
+```.\Terrashell.ps1 -Apply:$true -File C:\path\to\toml\file ```
 
 ## Thanks to jborean93 for his PSToml module. Links [here](https://github.com/jborean93)
