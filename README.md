@@ -25,11 +25,11 @@ Syntax is easier to understand or write to JSON or XML.
 
 To use, the script, you need to use first Init option like this :
 
-``` .\Terrashell.ps1 -Init:$true -File C:\path\to\toml\file ```
+``` .\Terrashell.ps1 -Init:$true -File "C:\path\to\toml\file" ```
 
 And to deploy template
 
-```.\Terrashell.ps1 -Apply:$true -File C:\path\to\toml\file ```
+```.\Terrashell.ps1 -Apply:$true -File "C:\path\to\toml\file" ```
 
 Destroy option is not implemented (in future release :D)
 
