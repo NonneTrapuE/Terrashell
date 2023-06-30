@@ -7,7 +7,7 @@ Powershell has one great advantage: it benefits from a huge community of users a
 And i think create provisionners from Powershell is simpliest because community works hard to create modules of everything (really everything...).
 Provisionners can be develop from modules, and developpers can gain many hours.
 
-## For testing 
+## Use case
 Terrashell is only for developpers now or testers.
 First provisionner is not stable usable really, it's only a PoC.
 To testing Terrashell, install Powershell 7.2 or early form [here](https://learn.microsoft.com/fr-fr/shows/it-ops-talk/how-to-install-powershell-7)
