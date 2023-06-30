@@ -8,10 +8,9 @@ And i think create provisionners from Powershell is simpliest because community 
 Provisionners can be develop from modules, and developpers can gain many hours.
 
 ## For testing 
-Terrashell is only for developpers now. No provisionners are existing today for Terrashell.
-But i works to develop quickly one for start.
-Maybe it's for VMWare ESX.
-For testing Terrashell, install Powershell 7.2 or early form [here](https://learn.microsoft.com/fr-fr/shows/it-ops-talk/how-to-install-powershell-7)
+Terrashell is only for developpers now or testers.
+First provisionner is not stable usable really, it's only a PoC.
+To testing Terrashell, install Powershell 7.2 or early form [here](https://learn.microsoft.com/fr-fr/shows/it-ops-talk/how-to-install-powershell-7)
 
 ## Toml
 Toml is a configuration language, like XML or JSON, but easier to understand by humans.
