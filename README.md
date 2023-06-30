@@ -31,4 +31,6 @@ And to deploy template
 
 ```.\Terrashell.ps1 -Apply:$true -File C:\path\to\toml\file ```
 
+Destroy option is not implemented (in future release :D)
+
 ## Thanks to jborean93 for his PSToml module. Links [here](https://github.com/jborean93)
