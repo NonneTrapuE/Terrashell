@@ -1,5 +1,5 @@
 # Terrashell
-Terrashell is an open source alternative to Terraform written in Powershell
+Terrashell is an open source alternative PoC to Terraform written in Powershell.
 
 ## Why Powershell ?
 Powershell is a great open source scripting language from Microsoft. It works in Linux, macOS and ... Windows. Of course.
