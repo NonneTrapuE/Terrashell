@@ -14,7 +14,7 @@ To testing Terrashell, install Powershell 7.2 or early form [here](https://learn
 
 ## Toml
 Toml is a configuration language, like XML or JSON, but easier to understand by humans.
-It's for that i choice this language
+It's for that i choice this language.
 
 ## To test Terraform
 
